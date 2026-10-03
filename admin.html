@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maison Hair — Admin</title>
+
+    <!-- Dashboard Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+    
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <span>MAISON</span>
+            <small>HAIR ADMIN</small>
+        </div>
+
+        <nav class="main-nav">
+
+            <a href="#" class="nav-link active" data-section="overview">
+                <span class="nav-icon">01</span>
+                <span>Overview</span>
+            </a>
+
+            <a href="#" class="nav-link" data-section="appointments">
+                <span class="nav-icon">02</span>
+                <span>Appointments</span>
+            </a>
+
+            <a href="#" class="nav-link" data-section="payments">
+                <span class="nav-icon">03</span>
+                <span>Payments</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <span>MAISON HAIR</span>
+            <small>ADMIN PANEL</small>
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN DASHBOARD
+    ====================================================== -->
+
+    <main class="dashboard">
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-title">
+
+                <p class="eyebrow">
+                    MAISON HAIR
+                </p>
+
+                <h1 id="pageTitle">
+                    Overview
+                </h1>
+
+            </div>
+
+<div class="admin-profile" id="adminProfile">
+
+    <div class="admin-avatar">
+        M
+    </div>
+
+    <div class="admin-info">
+        <strong>Mirae</strong>
+        <span>Administrator</span>
+    </div>
+
+    <i class="fa-solid fa-chevron-down admin-chevron"></i>
+
+</div>
+
+        </header>
+
+
+        <!-- =================================================
+             OVERVIEW
+        ================================================== -->
+
+        <section
+            id="overviewSection"
+            class="dashboard-section active-section"
+        >
+
+            <!-- =============================================
+                 OVERVIEW STATS
+            ============================================== -->
+
+            <section class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <span class="stat-label">
+                            Today's Appointments
+                        </span>
+
+                        <span class="stat-icon">
+                            01
+                        </span>
+
+                    </div>
+
+                    <strong id="todayCount">
+                        0
+                    </strong>
+
+                    <span class="stat-meta">
+                        Scheduled today
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <span class="stat-label">
+                            Pending
+                        </span>
+
+                        <span class="stat-icon">
+                            02
+                        </span>
+
+                    </div>
+
+                    <strong id="pendingCount">
+                        0
+                    </strong>
+
+                    <span class="stat-meta">
+                        Awaiting confirmation
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <span class="stat-label">
+                            This Week
+                        </span>
+
+                        <span class="stat-icon">
+                            03
+                        </span>
+
+                    </div>
+
+                    <strong id="weekCount">
+                        0
+                    </strong>
+
+                    <span class="stat-meta">
+                        Appointments this week
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card revenue-stat">
+
+                    <div class="stat-card-top">
+
+                        <span class="stat-label">
+                            Revenue
+                        </span>
+
+                        <span class="stat-icon">
+                            04
+                        </span>
+
+                    </div>
+
+                    <strong id="revenue">
+                        ₦0
+                    </strong>
+
+                    <span class="stat-meta">
+                        Total payments collected
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 RECENT APPOINTMENTS
+            ============================================== -->
+
+            <section class="appointments-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="eyebrow">
+                            BOOKINGS
+                        </p>
+
+                        <h2>
+                            Recent appointments
+                        </h2>
+                    </div>
+
+                    <button
+                        class="text-button"
+                        id="viewAllAppointments"
+                    >
+                        View all →
+                    </button>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Customer</th>
+                                <th>Service</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Payment</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="recentAppointmentsTable">
+
+                            <tr>
+                                <td colspan="6">
+                                    Loading appointments...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- =================================================
+             APPOINTMENTS
+        ================================================== -->
+
+        <section
+            id="appointmentsSection"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">
+                        BOOKINGS
+                    </p>
+
+                    <h2>
+                        Appointments
+                    </h2>
+                </div>
+
+                <button
+                    id="refreshBtn"
+                    class="secondary-button"
+                >
+                    Refresh
+                </button>
+
+            </div>
+
+
+            <!-- =============================================
+                 APPOINTMENT CONTROLS
+            ============================================== -->
+
+            <div class="appointment-controls">
+
+                <div class="search-wrapper">
+
+                    <span class="search-icon">
+                        /
+                    </span>
+
+                    <input
+                        type="search"
+                        id="appointmentSearch"
+                        placeholder="Search customer..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="filter-buttons">
+
+                    <button
+                        class="filter-btn active"
+                        data-filter="all"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="pending"
+                    >
+                        Pending
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="confirmed"
+                    >
+                        Confirmed
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="completed"
+                    >
+                        Completed
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="cancelled"
+                    >
+                        Cancelled
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Customer</th>
+                            <th>Service</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Payment</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="appointmentsTable">
+
+                        <tr>
+                            <td colspan="6">
+                                Loading appointments...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PAYMENTS
+        ================================================== -->
+
+        <section
+            id="paymentsSection"
+            class="dashboard-section"
+        >
+
+            <!-- =============================================
+                 PAYMENT STATS
+            ============================================== -->
+
+            <section class="payment-stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <span class="stat-label">
+                            Total Collected
+                        </span>
+
+                        <span class="stat-icon">
+                            01
+                        </span>
+
+                    </div>
+
+                    <strong id="totalCollected">
+                        ₦0
+                    </strong>
+
+                    <span class="stat-meta">
+                        All recorded payments
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <span class="stat-label">
+                            Today's Revenue
+                        </span>
+
+                        <span class="stat-icon">
+                            02
+                        </span>
+
+                    </div>
+
+                    <strong id="todayRevenue">
+                        ₦0
+                    </strong>
+
+                    <span class="stat-meta">
+                        Payments received today
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <span class="stat-label">
+                            Outstanding
+                        </span>
+
+                        <span class="stat-icon">
+                            03
+                        </span>
+
+                    </div>
+
+                    <strong id="outstandingAmount">
+                        ₦0
+                    </strong>
+
+                    <span class="stat-meta">
+                        Unpaid appointment balance
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <span class="stat-label">
+                            Paid Appointments
+                        </span>
+
+                        <span class="stat-icon">
+                            04
+                        </span>
+
+                    </div>
+
+                    <strong id="paidAppointments">
+                        0
+                    </strong>
+
+                    <span class="stat-meta">
+                        Fully paid bookings
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 REVENUE CHART
+            ============================================== -->
+
+            <section class="chart-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            REVENUE
+                        </p>
+
+                        <h2>
+                            Payment activity
+                        </h2>
+
+                    </div>
+
+
+                    <div class="chart-controls">
+
+                        <button
+                            class="chart-range-btn active"
+                            data-range="7"
+                        >
+                            7D
+                        </button>
+
+                        <button
+                            class="chart-range-btn"
+                            data-range="30"
+                        >
+                            30D
+                        </button>
+
+                        <button
+                            class="chart-range-btn"
+                            data-range="90"
+                        >
+                            90D
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chart-card">
+
+                    <div
+                        class="chart-header"
+                        id="chartRange"
+                    >
+                        Last 7 days
+                    </div>
+
+
+                    <div
+                        class="chart-tooltip"
+                        id="chartTooltip"
+                    >
+                    </div>
+
+
+                    <div class="chart-container">
+
+                        <svg
+                            id="revenueChart"
+                            class="revenue-chart"
+                            viewBox="0 0 1000 360"
+                            preserveAspectRatio="none"
+                            role="img"
+                            aria-label="Revenue over time"
+                        >
+
+                            <defs>
+
+                                <linearGradient
+                                    id="chartFill"
+                                    x1="0"
+                                    y1="0"
+                                    x2="0"
+                                    y2="1"
+                                >
+
+                                    <stop
+                                        offset="0%"
+                                        stop-opacity="0.22"
+                                    />
+
+                                    <stop
+                                        offset="100%"
+                                        stop-opacity="0"
+                                    />
+
+                                </linearGradient>
+
+                            </defs>
+
+
+                            <g id="chartGrid"></g>
+
+                            <path
+                                id="chartArea"
+                                class="chart-area"
+                            ></path>
+
+                            <path
+                                id="chartLine"
+                                class="chart-line"
+                            ></path>
+
+                            <g id="chartDots"></g>
+
+                        </svg>
+
+
+                        <div
+                            class="chart-empty"
+                            id="chartEmpty"
+                        >
+                            <strong>No payment data yet</strong>
+                            <span>
+                                Recorded payments will appear here.
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="chart-labels"
+                        id="chartLabels"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 PAYMENT TRANSACTIONS
+            ============================================== -->
+
+            <section class="appointments-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            FINANCES
+                        </p>
+
+                        <h2>
+                            Payment records
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Customer</th>
+                                <th>Service</th>
+                                <th>Amount</th>
+                                <th>Method</th>
+                                <th>Date</th>
+                                <th>Payment</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="paymentsTable">
+
+                            <tr>
+                                <td colspan="6">
+                                    Loading payments...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         APPOINTMENT MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="appointmentModal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="appointment-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalCustomerName"
+        >
+
+            <button
+                class="close-modal"
+                id="closeModal"
+                aria-label="Close appointment details"
+            >
+                ×
+            </button>
+
+
+            <p class="eyebrow">
+                APPOINTMENT DETAILS
+            </p>
+
+
+            <h2 id="modalCustomerName">
+                Customer
+            </h2>
+
+
+            <div class="modal-status-row">
+
+                <span
+                    class="status"
+                    id="modalStatus"
+                >
+                    Pending
+                </span>
+
+                <span
+                    class="payment-status"
+                    id="modalPaymentStatus"
+                >
+                    Unpaid
+                </span>
+
+            </div>
+
+
+            <!-- =============================================
+                 APPOINTMENT INFORMATION
+            ============================================== -->
+
+            <div class="details-grid">
+
+                <div class="detail-item">
+                    <span>Phone</span>
+                    <strong id="modalPhone">—</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Service</span>
+                    <strong id="modalService">—</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Service Price</span>
+                    <strong id="modalPrice">—</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Date</span>
+                    <strong id="modalDate">—</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Time</span>
+                    <strong id="modalTime">—</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Amount Paid</span>
+                    <strong id="modalAmountPaid">—</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Amount Remaining</span>
+                    <strong id="modalAmountRemaining">—</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Booked On</span>
+                    <strong id="modalCreatedAt">—</strong>
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 PAYMENT SUMMARY
+            ============================================== -->
+
+            <div class="payment-record-section">
+
+                <p class="eyebrow">
+                    PAYMENT
+                </p>
+
+
+                <div class="payment-summary">
+
+                    <div>
+                        <span>Total</span>
+                        <strong id="paymentTotal">
+                            ₦0
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Paid</span>
+                        <strong id="paymentPaid">
+                            ₦0
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Remaining</span>
+                        <strong id="paymentRemaining">
+                            ₦0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="action-btn payment-btn"
+                    id="recordPaymentBtn"
+                >
+                    Record Payment
+                </button>
+
+            </div>
+
+
+            <!-- =============================================
+                 NOTES
+            ============================================== -->
+
+            <div class="notes-box">
+
+                <span>
+                    Additional Details
+                </span>
+
+                <p id="modalNotes">
+                    No additional details provided.
+                </p>
+
+            </div>
+
+
+            <!-- =============================================
+                 APPOINTMENT ACTIONS
+            ============================================== -->
+
+            <div class="modal-actions">
+
+                <button
+                    class="action-btn confirm-btn"
+                    id="confirmAppointmentBtn"
+                >
+                    Confirm Appointment
+                </button>
+
+                <button
+                    class="action-btn cancel-btn"
+                    id="cancelAppointmentBtn"
+                >
+                    Cancel Appointment
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         RECORD PAYMENT MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="paymentModal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="payment-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="paymentModalTitle"
+        >
+
+            <button
+                class="close-modal"
+                id="closePaymentModal"
+                aria-label="Close payment form"
+            >
+                ×
+            </button>
+
+
+            <p class="eyebrow">
+                RECORD PAYMENT
+            </p>
+
+
+            <h2 id="paymentModalTitle">
+                Record a payment
+            </h2>
+
+
+            <p class="payment-customer">
+                <span id="paymentCustomerName">
+                    Customer
+                </span>
+            </p>
+
+
+            <!-- =============================================
+                 PAYMENT FORM
+            ============================================== -->
+
+            <div class="payment-form">
+
+                <label>
+
+                    <span>
+                        Amount Paid
+                    </span>
+
+                    <input
+                        type="number"
+                        id="paymentAmount"
+                        placeholder="Enter amount"
+                        min="1"
+                        step="1"
+                        inputmode="numeric"
+                    >
+
+                </label>
+
+
+                <label>
+
+                    <span>
+                        Payment Method
+                    </span>
+
+                    <select id="paymentMethod">
+
+                        <option value="transfer">
+                            Bank Transfer
+                        </option>
+
+                        <option value="cash">
+                            Cash
+                        </option>
+
+                        <option value="card">
+                            Card
+                        </option>
+
+                    </select>
+
+                </label>
+
+            </div>
+
+
+            <!-- =============================================
+                 PAYMENT PREVIEW
+            ============================================== -->
+
+            <div class="payment-preview">
+
+                <div>
+
+                    <span>
+                        Current paid
+                    </span>
+
+                    <strong id="currentPaidPreview">
+                        ₦0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        After payment
+                    </span>
+
+                    <strong id="afterPaymentPreview">
+                        ₦0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Remaining
+                    </span>
+
+                    <strong id="afterPaymentRemaining">
+                        ₦0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="action-btn confirm-btn"
+                id="savePaymentBtn"
+            >
+                Save Payment
+            </button>
+
+        </div>
+
+    </div>
+    
+    <div
+    class="profile-card"
+    id="profileCard"
+>
+
+    <div class="profile-card-header">
+
+        <div class="profile-avatar">
+            M
+        </div>
+
+        <div>
+            <strong>Mirae</strong>
+            <span>Maison Hair Admin</span>
+        </div>
+
+    </div>
+
+
+    <div class="profile-divider"></div>
+
+
+    <div class="profile-details">
+
+        <div class="profile-detail">
+            <i class="fa-solid fa-user-shield"></i>
+
+            <div>
+                <span>Role</span>
+                <strong>Administrator</strong>
+            </div>
+        </div>
+
+
+        <div class="profile-detail">
+            <i class="fa-solid fa-database"></i>
+
+            <div>
+                <span>Data</span>
+                <strong>Appointments & Payments</strong>
+            </div>
+        </div>
+
+    </div>
+
+
+    <button
+        class="clear-data-btn"
+        id="clearDataBtn"
+    >
+        <i class="fa-solid fa-trash-can"></i>
+        <span>Clear all data</span>
+    </button>
+    
+    <button class="logout-btn" id="logoutBtn">
+    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    <span>Log out</span>
+</button>
+
+</div>
+
+<div
+    class="appointment-action-menu"
+    id="appointmentActionMenu"
+>
+
+    <button
+        id="deleteAppointmentBtn"
+        class="delete-action"
+    >
+        <i class="fa-solid fa-trash-can"></i>
+        Delete appointment
+    </button>
+
+</div>
+
+<!-- WhatsApp Notification Modal -->
+<div class="whatsapp-modal-overlay" id="whatsappModal">
+    <div class="whatsapp-modal">
+
+        <button
+            class="whatsapp-modal-close"
+            id="whatsappModalClose"
+            aria-label="Close"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="whatsapp-modal-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
+        <span class="whatsapp-modal-eyebrow">
+            CUSTOMER NOTIFICATION
+        </span>
+
+        <h3 id="whatsappModalTitle">
+            Appointment confirmed
+        </h3>
+
+        <p class="whatsapp-modal-description" id="whatsappModalDescription">
+            Would you like to notify the customer on WhatsApp?
+        </p>
+
+        <div class="whatsapp-message-preview">
+            <div class="preview-header">
+                <span>Message preview</span>
+                <i class="fa-regular fa-message"></i>
+            </div>
+
+            <p id="whatsappMessagePreview"></p>
+        </div>
+
+        <div class="whatsapp-modal-actions">
+            <button
+                class="whatsapp-cancel-btn"
+                id="whatsappCancelBtn"
+            >
+                Not now
+            </button>
+
+            <button
+                class="whatsapp-send-btn"
+                id="whatsappSendBtn"
+            >
+                <i class="fa-brands fa-whatsapp"></i>
+                Open WhatsApp
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- =====================================================
+     STABILITY ADD-ONS  (Maison Hair admin)
+     Paste these TWO lines right BEFORE the Supabase script tag,
+     i.e. just above:
+         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+     Then load the stability stylesheet AFTER admin.css in <head>:
+
+         <link rel="stylesheet" href="admin-stability.css">
+========================================================= -->
+
+<!-- Offline indicator (shown automatically when connection drops) -->
+<div id="offlineBanner" role="alert">You are offline — dashboard data may be out of date</div>
+
+<!-- Toast notification container (errors / successes appear here) -->
+<div id="toastContainer" aria-live="polite"></div>
+
+
+
+    <!-- =====================================================
+         SUPABASE
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="admin.js"></script>
+
+</body>
+</html>

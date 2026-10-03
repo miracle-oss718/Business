@@ -1,0 +1,268 @@
+/* =========================================================
+   MAISON HAIR — BOOKING PAGE
+========================================================= */
+
+:root {
+    --black: #0b0b0b;
+    --black-soft: #151515;
+    --cream: #f4efe7;
+    --cream-soft: #e8e1d7;
+    --brown: #8b6b4a;
+    --border: rgba(244, 239, 231, 0.16);
+    --muted: #aaa39a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--black);
+    color: var(--cream);
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================================
+   BOOKING SECTION
+========================================================= */
+
+.booking-section {
+    width: min(100% - 32px, 720px);
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.booking-intro {
+    margin-bottom: 50px;
+}
+
+.eyebrow {
+    margin-bottom: 16px;
+
+    color: var(--brown);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.booking-intro h1 {
+    max-width: 600px;
+
+    margin-bottom: 18px;
+
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 8vw, 72px);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+.booking-intro > p:last-child {
+    max-width: 500px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+#bookingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.form-group label {
+    color: var(--cream-soft);
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    border: 1px solid var(--border);
+    border-radius: 2px;
+
+    background: var(--black-soft);
+    color: var(--cream);
+
+    padding: 17px 16px;
+
+    font: inherit;
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #66615b;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--brown);
+    background: #191919;
+}
+
+select {
+    cursor: pointer;
+}
+
+select option {
+    background: var(--black-soft);
+    color: var(--cream);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+
+/* =========================================================
+   DATE + TIME
+========================================================= */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+input[type="date"],
+input[type="time"] {
+    color-scheme: dark;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+#submitBtn {
+    width: 100%;
+
+    margin-top: 8px;
+    padding: 18px 24px;
+
+    border: 1px solid var(--cream);
+    border-radius: 2px;
+
+    background: var(--cream);
+    color: var(--black);
+
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+#submitBtn:hover {
+    background: transparent;
+    color: var(--cream);
+}
+
+#submitBtn:active {
+    transform: translateY(1px);
+}
+
+#submitBtn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+#message {
+    min-height: 22px;
+
+    color: var(--brown);
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .booking-section {
+        width: min(100% - 24px, 720px);
+        padding: 55px 0;
+    }
+
+    .booking-intro {
+        margin-bottom: 38px;
+    }
+
+    .booking-intro h1 {
+        font-size: 46px;
+        letter-spacing: -1.5px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    input,
+    select,
+    textarea {
+        padding: 16px 14px;
+    }
+
+    #submitBtn {
+        padding: 17px;
+    }
+}

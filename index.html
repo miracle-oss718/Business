@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maison Hair — Book an Appointment</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="booking-section">
+
+        <div class="booking-intro">
+            <p class="eyebrow">MAISON HAIR</p>
+
+            <h1>Book your appointment.</h1>
+
+            <p>
+                Choose your service and preferred time.
+                We'll confirm your appointment shortly.
+            </p>
+        </div>
+
+        <form id="bookingForm">
+
+            <div class="form-group">
+                <label for="name">Full name</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="08012345678"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="service">Service</label>
+
+                <select id="service" required>
+                    <option value="">Select a service</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="date">Preferred date</label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Preferred time</label>
+
+                    <input
+                        type="time"
+                        id="time"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Additional details</label>
+
+                <textarea
+                    id="notes"
+                    rows="5"
+                    placeholder="Tell us anything we should know..."
+                ></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn">
+                Book Appointment
+            </button>
+
+            <p id="message"></p>
+
+        </form>
+
+    </main>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Our JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
